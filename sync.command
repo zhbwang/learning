@@ -1,16 +1,16 @@
 #!/bin/bash
 
-cd /Users/wangzhibin/00_dev_suite/01_dev_workspace/workspace-github/learning-doc
+cd /Users/wangzhibin/12_note_md/learning-doc
 pwd
 gitbook build
-cp -r ./_book/* /Users/wangzhibin/00_dev_suite/01_dev_workspace/workspace-github/learning/
+cp -r ./_book/* /Users/wangzhibin/12_note_md/learning/
 git add .
 git commit -m "rebuild"
 git push
 
 
 
-cd /Users/wangzhibin/00_dev_suite/01_dev_workspace/workspace-github/learning/
+cd /Users/wangzhibin/12_note_md/learning/
 git add .
 git commit -m "rebuild"
 git push
