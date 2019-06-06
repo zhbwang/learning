@@ -316,3 +316,7 @@ $conf['template']='vector';
 2. [官方插件](https://www.dokuwiki.org/plugins)
 3. [用 Dokuwiki 管理小团队知识](http://chenzixin.github.io/pmp/2013/03/26/dokuwiki-you-knowledge/)
 4. [dokuwiki安装使用教程（支持中文、editor.md、粘贴上传图片）](https://blog.csdn.net/mergerly/article/details/79629562)
+
+## ChangeLog
+
+* 20190603 | 创建文档
