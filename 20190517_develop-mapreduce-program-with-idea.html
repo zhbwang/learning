@@ -1,0 +1,734 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>使用IDEA开发MapReduce程序 · 文斌的学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="wangzb">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="20190522_principle-and-architecture-analysis-of-hadoop .html" />
+    
+    
+    <link rel="prev" href="20190517_detailed-hadoop-commands.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" >
+            
+                <a target="_blank" href="http://localhost/life">
+            
+                    
+                    life
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+
+    
+        
+        <li class="header">学习之道</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    知识体系构建
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="20190606_how-to-build-your-own-knowledge-base.html">
+            
+                <a href="20190606_how-to-build-your-own-knowledge-base.html">
+            
+                    
+                    如何建立自己的知识库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    工具使用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="20180603_introduction-of-markdown.html">
+            
+                <a href="20180603_introduction-of-markdown.html">
+            
+                    
+                    初步认识Markdown
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="20190214_git-code-transfer-to-gitee.html">
+            
+                <a href="20190214_git-code-transfer-to-gitee.html">
+            
+                    
+                    Git代码转移到码云相关命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">技术学习</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    大数据学习之路
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" >
+            
+                <span>
+            
+                    
+                    初识Hadoop
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1" data-path="20190515_let-hadoop-run.html">
+            
+                <a href="20190515_let-hadoop-run.html">
+            
+                    
+                    让Hadoop在MacOS上跑起来
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2" data-path="20190517_the-first-mapreduce-program.html">
+            
+                <a href="20190517_the-first-mapreduce-program.html">
+            
+                    
+                    第一个MapReduce程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.3" data-path="20190517_detailed-hadoop-commands.html">
+            
+                <a href="20190517_detailed-hadoop-commands.html">
+            
+                    
+                    Hadoop常用命令详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.1.1.4" data-path="20190517_develop-mapreduce-program-with-idea.html">
+            
+                <a href="20190517_develop-mapreduce-program-with-idea.html">
+            
+                    
+                    使用IDEA开发MapReduce程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.5" data-path="20190522_principle-and-architecture-analysis-of-hadoop .html">
+            
+                <a href="20190522_principle-and-architecture-analysis-of-hadoop .html">
+            
+                    
+                    Hadoop原理与架构解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" >
+            
+                <span>
+            
+                    
+                    Linux
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="20180712_commands-of-linux.html">
+            
+                <a href="20180712_commands-of-linux.html">
+            
+                    
+                    Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >使用IDEA开发MapReduce程序</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4F7F;&#x7528;IDEA&#x5F00;&#x53D1;MapReduce&#x7A0B;&#x5E8F;">&#x4F7F;&#x7528;IDEA&#x5F00;&#x53D1;MapReduce&#x7A0B;&#x5E8F;</h1>
+<blockquote>
+<p>2019-05-17 | &#x5927;&#x6570;&#x636E;&#x5B66;&#x4E60;&#x4E4B;&#x8DEF;04</p>
+</blockquote>
+<h2 id="&#x73AF;&#x5883;&#x51C6;&#x5907;">1. &#x73AF;&#x5883;&#x51C6;&#x5907;</h2>
+<ol>
+<li>jdk1.7</li>
+<li>intellij idea</li>
+<li>maven</li>
+</ol>
+<h2 id="&#x672C;&#x5730;MapReduce&#x7A0B;&#x5E8F;&#x4E4B;WordCount">2. &#x672C;&#x5730;MapReduce&#x7A0B;&#x5E8F;&#x4E4B;WordCount</h2>
+<p>&#x8FD9;&#x91CC;&#x4EE5;Hadoop&#x7684;&#x5B98;&#x65B9;&#x793A;&#x4F8B;&#x7A0B;&#x5E8F;WordCount&#x4E3A;&#x4F8B;&#xFF0C;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x4E00;&#x6B65;&#x6B65;&#x7F16;&#x5199;&#x7A0B;&#x5E8F;&#x76F4;&#x5230;&#x8FD0;&#x884C;&#x3002;</p>
+<h3 id="&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Maven&#x5DE5;&#x7A0B;">2.1. &#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Maven&#x5DE5;&#x7A0B;</h3>
+<p>&#x4F7F;&#x7528;idea&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x666E;&#x901A;maven&#x9879;&#x76EE;bigdata-learn-wordcount</p>
+<h3 id="maven&#x4F9D;&#x8D56;">2.2. maven&#x4F9D;&#x8D56;</h3>
+<pre><code class="lang-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.hadoop<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hadoop-common<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.8.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.hadoop<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hadoop-hdfs<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.8.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.hadoop<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hadoop-mapreduce-client-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.8.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.hadoop<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hadoop-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.8.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+</code></pre>
+<h3 id="&#x62F7;&#x8D1D;Hadoop&#x4E2D;&#x7684;WordCount&#x6E90;&#x7801;">2.3. &#x62F7;&#x8D1D;Hadoop&#x4E2D;&#x7684;WordCount&#x6E90;&#x7801;</h3>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * &quot;License&quot;); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */</span>
+
+<span class="hljs-keyword">package</span> com.zhbwang.bigdata.example;
+
+
+
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.util.StringTokenizer;
+
+<span class="hljs-keyword">import</span> org.apache.hadoop.conf.Configuration;
+<span class="hljs-keyword">import</span> org.apache.hadoop.fs.Path;
+<span class="hljs-keyword">import</span> org.apache.hadoop.io.IntWritable;
+<span class="hljs-keyword">import</span> org.apache.hadoop.io.Text;
+<span class="hljs-keyword">import</span> org.apache.hadoop.mapreduce.Job;
+<span class="hljs-keyword">import</span> org.apache.hadoop.mapreduce.Mapper;
+<span class="hljs-keyword">import</span> org.apache.hadoop.mapreduce.Reducer;
+<span class="hljs-keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+<span class="hljs-keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+<span class="hljs-keyword">import</span> org.apache.hadoop.util.GenericOptionsParser;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WordCount</span> </span>{
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TokenizerMapper</span>
+            <span class="hljs-keyword">extends</span> <span class="hljs-title">Mapper</span>&lt;<span class="hljs-title">Object</span>, <span class="hljs-title">Text</span>, <span class="hljs-title">Text</span>, <span class="hljs-title">IntWritable</span>&gt;</span>{
+
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> IntWritable one = <span class="hljs-keyword">new</span> IntWritable(<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">private</span> Text word = <span class="hljs-keyword">new</span> Text();
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">map</span><span class="hljs-params">(Object key, Text value, Context context
+        )</span> <span class="hljs-keyword">throws</span> IOException, InterruptedException </span>{
+            StringTokenizer itr = <span class="hljs-keyword">new</span> StringTokenizer(value.toString());
+            <span class="hljs-keyword">while</span> (itr.hasMoreTokens()) {
+                word.set(itr.nextToken());
+                context.write(word, one);
+            }
+        }
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IntSumReducer</span>
+            <span class="hljs-keyword">extends</span> <span class="hljs-title">Reducer</span>&lt;<span class="hljs-title">Text</span>,<span class="hljs-title">IntWritable</span>,<span class="hljs-title">Text</span>,<span class="hljs-title">IntWritable</span>&gt; </span>{
+        <span class="hljs-keyword">private</span> IntWritable result = <span class="hljs-keyword">new</span> IntWritable();
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">reduce</span><span class="hljs-params">(Text key, Iterable&lt;IntWritable&gt; values,
+                           Context context
+        )</span> <span class="hljs-keyword">throws</span> IOException, InterruptedException </span>{
+            <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">for</span> (IntWritable val : values) {
+                sum += val.get();
+            }
+            result.set(sum);
+            context.write(key, result);
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+        String[] otherArgs = <span class="hljs-keyword">new</span> GenericOptionsParser(conf, args).getRemainingArgs();
+        <span class="hljs-keyword">if</span> (otherArgs.length &lt; <span class="hljs-number">2</span>) {
+            System.err.println(<span class="hljs-string">&quot;Usage: wordcount &lt;in&gt; [&lt;in&gt;...] &lt;out&gt;&quot;</span>);
+            System.exit(<span class="hljs-number">2</span>);
+        }
+        Job job = Job.getInstance(conf, <span class="hljs-string">&quot;word count&quot;</span>);
+        job.setJarByClass(WordCount.class);
+        job.setMapperClass(TokenizerMapper.class);
+        job.setCombinerClass(IntSumReducer.class);
+        job.setReducerClass(IntSumReducer.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; otherArgs.length - <span class="hljs-number">1</span>; ++i) {
+            FileInputFormat.addInputPath(job, <span class="hljs-keyword">new</span> Path(otherArgs[i]));
+        }
+        FileOutputFormat.setOutputPath(job,
+                <span class="hljs-keyword">new</span> Path(otherArgs[otherArgs.length - <span class="hljs-number">1</span>]));
+        System.exit(job.waitForCompletion(<span class="hljs-keyword">true</span>) ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>);
+    }
+}
+</code></pre>
+<h3 id="&#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;">2.4. &#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;</h3>
+<p>&#x5728;&#x5DE5;&#x7A0B;&#x6839;&#x76EE;&#x5F55;&#x65B0;&#x5EFA;input&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x589E;&#x52A0;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;</p>
+<pre><code>input
+- file1.TXT
+Hello World
+- file2.txt
+Hello Hadoop
+</code></pre><h3 id="&#x8FD0;&#x884C;&#x914D;&#x7F6E;">2.5. &#x8FD0;&#x884C;&#x914D;&#x7F6E;</h3>
+<p><img src="http://pic.iloc.cn/2019-06-08-image-20190517181454978.png" alt="image-20190517181454978"></p>
+<h3 id="&#x7A0B;&#x5E8F;&#x6267;&#x884C;">2.6. &#x7A0B;&#x5E8F;&#x6267;&#x884C;</h3>
+<p><img src="http://pic.iloc.cn/2019-06-08-image-20190517181524473.png" alt="image-20190517181524473"></p>
+<h3 id="&#x6267;&#x884C;&#x65E5;&#x5FD7;">2.7. &#x6267;&#x884C;&#x65E5;&#x5FD7;</h3>
+<p><img src="http://pic.iloc.cn/2019-06-08-image-20190517181545787.png" alt="image-20190517181545787"></p>
+<h3 id="&#x6267;&#x884C;&#x7ED3;&#x679C;">2.8. &#x6267;&#x884C;&#x7ED3;&#x679C;</h3>
+<p><img src="http://pic.iloc.cn/2019-06-08-image-20190517181624285.png" alt="image-20190517181624285"></p>
+<h2 id="&#x6253;&#x5305;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;hadoop_jar&#x547D;&#x4EE4;&#x6267;&#x884C;">3. &#x6253;&#x5305;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;hadoop jar&#x547D;&#x4EE4;&#x6267;&#x884C;</h2>
+<h3 id="pom_xml&#x589E;&#x52A0;&#x6253;&#x5305;&#x63D2;&#x4EF6;">3.1. pom.xml&#x589E;&#x52A0;&#x6253;&#x5305;&#x63D2;&#x4EF6;</h3>
+<pre><code>        &lt;plugins&gt;
+            &lt;!--&#x6307;&#x5B9A;&#x4E3B;&#x51FD;&#x6570;&#x548C;&#x5404;&#x4E2A;&#x4F9D;&#x8D56;--&gt;
+            &lt;plugin&gt;
+                &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.2&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;archive&gt;
+                        &lt;manifest&gt;
+                            &lt;mainClass&gt;com.zhbwang.bigdata.example.WordCount&lt;/mainClass&gt;
+                        &lt;/manifest&gt;
+                    &lt;/archive&gt;
+                    &lt;descriptorRefs&gt;
+                        &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;
+                    &lt;/descriptorRefs&gt;
+                &lt;/configuration&gt;
+                &lt;executions&gt;
+                    &lt;execution&gt;
+                        &lt;id&gt;make-assembly&lt;/id&gt;
+                        &lt;phase&gt;package&lt;/phase&gt;
+                        &lt;goals&gt;
+                            &lt;goal&gt;single&lt;/goal&gt;
+                        &lt;/goals&gt;
+                    &lt;/execution&gt;
+                &lt;/executions&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+</code></pre><h3 id="maven&#x6253;&#x5305;">3.2. maven&#x6253;&#x5305;</h3>
+<pre><code>$ mvn clean install
+</code></pre><p>&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x53EF;&#x6267;&#x884C;jar&#x5305;&#xFF1A;<code>bigdata-learn-wordcount-1.0-SNAPSHOT-jar-with-dependencies.jar</code></p>
+<h3 id="&#x4F7F;&#x7528;java_-jar&#x6267;&#x884C;">3.3. &#x4F7F;&#x7528;java -jar&#x6267;&#x884C;</h3>
+<ol>
+<li><p>&#x5728;&#x5F53;&#x524D;&#x53EF;&#x6267;&#x884C;jar&#x76EE;&#x5F55;&#x521D;&#x59CB;&#x5316;input&#x6587;&#x4EF6;&#x5939;</p>
+</li>
+<li><p>&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF0C;&#x5373;&#x53EF;&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x751F;&#x6210;output&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x91CC;&#x9762;&#x5C31;&#x662F;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x3002;</p>
+<pre><code>java -jar bigdata-learn-wordcount-1.0-SNAPSHOT-jar-with-dependencies.jar input output
+</code></pre></li>
+</ol>
+<h3 id="&#x4F7F;&#x7528;hadoop_jar&#x6267;&#x884C;">3.4. &#x4F7F;&#x7528;hadoop jar&#x6267;&#x884C;</h3>
+<p>&#x4E00;&#x5F00;&#x59CB;&#x9047;&#x5230;&#x95EE;&#x9898;&#x4E86;&#xFF0C;&#x8FD8;&#x4EE5;&#x4E3A;&#x6253;&#x5305;&#x6253;&#x7684;&#x4E0D;&#x5BF9;&#xFF0C;&#x6362;&#x4E86;&#x51E0;&#x4E2A;&#x6253;&#x5305;&#x63D2;&#x4EF6;&#x90FD;&#x4E0D;&#x884C;&#x3002;</p>
+<pre><code>WZB-MacBook:target wangzhibin$ hadoop jar bigdata-learn-wordcount-1.0-SNAPSHOT-jar-with-dependencies.jar /practice/20190517_mr/input /practice/20190517_mr/output
+Exception in thread &quot;main&quot; java.io.IOException: Mkdirs failed to create /var/folders/gg/35tlzsrs1kj3c460vh9tvvv40000gn/T/hadoop-unjar2170725475686001105/META-INF/license
+    at org.apache.hadoop.util.RunJar.ensureDirectory(RunJar.java:140)
+    at org.apache.hadoop.util.RunJar.unJar(RunJar.java:109)
+    at org.apache.hadoop.util.RunJar.unJar(RunJar.java:85)
+    at org.apache.hadoop.util.RunJar.run(RunJar.java:222)
+    at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+</code></pre><p>&#x540E;&#x6765;&#x627E;&#x5230;&#x51E0;&#x7BC7;&#x6587;&#x7AE0;&#xFF0C;&#x53D1;&#x73B0;&#x662F;<strong>Mac</strong>&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5728;stackoverflow&#x4E2D;&#x627E;&#x5230;&#x89E3;&#x91CA;&#xFF1A;</p>
+<pre><code>The issue is that a /tmp/hadoop-xxx/xxx/LICENSE file and a
+/tmp/hadoop-xxx/xxx/license directory are being created on a
+case-insensitive file system when unjarring the mahout jobs.
+</code></pre><p>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</p>
+<ol>
+<li><a href="https://stackoverflow.com/questions/10522835/hadoop-java-io-ioexception-mkdirs-failed-to-create-some-path" target="_blank">Hadoop java.io.IOException: Mkdirs failed to create /some/path</a></li>
+<li><a href="https://www.cnblogs.com/fanghao/p/8516890.html" target="_blank">Mac&#x4E0B;hadoop&#x8FD0;&#x884C;word count&#x7684;&#x5751;</a></li>
+</ol>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x5220;&#x9664;&#x539F;&#x6765;&#x538B;&#x7F29;&#x5305;&#x7684;META-INF/LICENS&#x5373;&#x53EF;&#x3002;</p>
+<pre><code>zip -d bigdata-learn-wordcount-1.0-SNAPSHOT-jar-with-dependencies.jar META-INF/LICENSE
+jar tvf bigdata-learn-wordcount-1.0-SNAPSHOT-jar-with-dependencies.jar | grep LICENSE
+</code></pre><p>&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;hadoop jar&#x547D;&#x4EE4;&#x6267;&#x884C;&#x4E86;&#x3002;</p>
+<pre><code>WZB-MacBook:target wangzhibin$ hadoop jar bigdata-learn-wordcount-1.0-SNAPSHOT-jar-with-dependencies.jar /practice/20190517_mr/input /practice/20190517_mr/output
+19/05/17 22:07:09 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+19/05/17 22:07:10 INFO input.FileInputFormat: Total input files to process : 2
+19/05/17 22:07:10 INFO mapreduce.JobSubmitter: number of splits:2
+19/05/17 22:07:10 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1558078701666_0004
+19/05/17 22:07:11 INFO impl.YarnClientImpl: Submitted application application_1558078701666_0004
+19/05/17 22:07:11 INFO mapreduce.Job: The url to track the job: http://WZB-MacBook.local:8088/proxy/application_1558078701666_0004/
+19/05/17 22:07:11 INFO mapreduce.Job: Running job: job_1558078701666_0004
+</code></pre><p>&#x67E5;&#x770B;&#x7ED3;&#x679C;&#x3002;</p>
+<pre><code>WZB-MacBook:target wangzhibin$ hadoop fs -cat /practice/20190517_mr/output/part-r-00000
+Hadoop    1
+Hello    2
+World    1
+</code></pre><h2 id="&#x95EE;&#x9898;">4. &#x95EE;&#x9898;</h2>
+<h3 id="&#x4E00;&#x3001;Hadoop_2_x&#x4E2D;&#x8FD8;&#x6709;hadoop-core-x_x_jar&#x5417;&#xFF1F;">4.1. &#x4E00;&#x3001;Hadoop 2.x&#x4E2D;&#x8FD8;&#x6709;hadoop-core-x.x.jar&#x5417;&#xFF1F;</h3>
+<p>&#x7B54;&#xFF1A;2.x&#x7CFB;&#x5217;&#x5DF2;&#x7ECF;&#x6CA1;&#x6709;hadoop-core&#x7684;jar&#x5305;&#x4E86;&#xFF0C;&#x53D6;&#x800C;&#x4EE3;&#x4E4B;&#x7684;&#x662F;</p>
+<p><img src="http://pic.iloc.cn/2019-06-08-d439b6003af33a8763a6fae0c25c10385243b505.jpg" alt="img"></p>
+<p>&#x5BF9;&#x4E8E;Hadoop2.x.x&#x7248;&#x672C;&#xFF0C;&#x9700;&#x8981;&#x5F15;&#x5165;4&#x4E2A;jar&#xFF1A;</p>
+<ol>
+<li>hadoop-common</li>
+<li>hadoop-hdfs</li>
+<li>hadoop-mapreduce-client-core</li>
+<li>hadoop-client</li>
+<li>jdk.tools&#xFF08;&#x4E00;&#x822C;&#x9700;&#x8981;&#x5F15;&#x5165;&#xFF0C;&#x5426;&#x5219;&#x62A5;&#x9519;&#xFF09;</li>
+</ol>
+<p>&#x53C2;&#x8003;&#xFF1A;<a href="https://blog.csdn.net/qq_33813365/article/details/70214484" target="_blank">Hadoop&#x9700;&#x8981;&#x7684;Jar&#x5305;</a></p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">5. &#x53C2;&#x8003;&#x8D44;&#x6599;</h2>
+<ol>
+<li><a href="https://www.jianshu.com/p/7e178c952a04" target="_blank">IDEA &#x914D;&#x7F6E;Hadoop&#x5F00;&#x53D1;&#xFF08;&#x5F00;&#x53D1;&#x8C03;&#x8BD5;&#xFF09;</a></li>
+<li><a href="https://www.jianshu.com/p/35ef70dfb651?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation" target="_blank">Hadoop&#x5165;&#x95E8;&#x5B66;&#x4E60;&#x4E4B;&#xFF08;&#x4E8C;&#xFF09;&#xFF1A;Intellij &#x5F00;&#x53D1;Hadoop&#x73AF;&#x5883;&#x642D;&#x5EFA;</a></li>
+<li><a href="https://www.polarxiong.com/archives/Hadoop-Intellij&#x7ED3;&#x5408;Maven&#x672C;&#x5730;&#x8FD0;&#x884C;&#x548C;&#x8C03;&#x8BD5;MapReduce&#x7A0B;&#x5E8F;-&#x65E0;&#x9700;&#x642D;&#x8F7D;Hadoop&#x548C;HDFS&#x73AF;&#x5883;.html" target="_blank">Hadoop: Intellij&#x7ED3;&#x5408;Maven&#x672C;&#x5730;&#x8FD0;&#x884C;&#x548C;&#x8C03;&#x8BD5;MapReduce&#x7A0B;&#x5E8F; (&#x65E0;&#x9700;&#x642D;&#x8F7D;Hadoop&#x548C;HDFS&#x73AF;&#x5883;)</a></li>
+<li><a href="https://www.cnblogs.com/YellowstonePark/p/7699083.html" target="_blank">&#x5927;&#x6570;&#x636E;&#x7CFB;&#x5217;&#xFF08;hadoop&#xFF09; &#x96C6;&#x7FA4;&#x73AF;&#x5883;&#x642D;&#x5EFA; idea &#x5F00;&#x53D1;&#x8BBE;&#x7F6E;</a></li>
+<li><a href="https://www.cnblogs.com/fanghao/p/8516890.html" target="_blank">Mac&#x4E0B;hadoop&#x8FD0;&#x884C;word count&#x7684;&#x5751;</a></li>
+</ol>
+<h2 id="ChangeLog">6. ChangeLog</h2>
+<ul>
+<li>20190517 | &#x521B;&#x5EFA;&#x6587;&#x6863; </li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; zhbwang all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-06-08 17:00:43
+</span></footer><div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#&#x4F7F;&#x7528;IDEA&#x5F00;&#x53D1;MapReduce&#x7A0B;&#x5E8F;">&#x4F7F;&#x7528;IDEA&#x5F00;&#x53D1;MapReduce&#x7A0B;&#x5E8F;</a></p><li><a href="#&#x73AF;&#x5883;&#x51C6;&#x5907;">1. &#x73AF;&#x5883;&#x51C6;&#x5907;</a></li><li><a href="#&#x672C;&#x5730;MapReduce&#x7A0B;&#x5E8F;&#x4E4B;WordCount">2. &#x672C;&#x5730;MapReduce&#x7A0B;&#x5E8F;&#x4E4B;WordCount</a></li><ul><li><a href="#&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Maven&#x5DE5;&#x7A0B;">2.1. &#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Maven&#x5DE5;&#x7A0B;</a></li><li><a href="#maven&#x4F9D;&#x8D56;">2.2. maven&#x4F9D;&#x8D56;</a></li><li><a href="#&#x62F7;&#x8D1D;Hadoop&#x4E2D;&#x7684;WordCount&#x6E90;&#x7801;">2.3. &#x62F7;&#x8D1D;Hadoop&#x4E2D;&#x7684;WordCount&#x6E90;&#x7801;</a></li><li><a href="#&#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;">2.4. &#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;</a></li><li><a href="#&#x8FD0;&#x884C;&#x914D;&#x7F6E;">2.5. &#x8FD0;&#x884C;&#x914D;&#x7F6E;</a></li><li><a href="#&#x7A0B;&#x5E8F;&#x6267;&#x884C;">2.6. &#x7A0B;&#x5E8F;&#x6267;&#x884C;</a></li><li><a href="#&#x6267;&#x884C;&#x65E5;&#x5FD7;">2.7. &#x6267;&#x884C;&#x65E5;&#x5FD7;</a></li><li><a href="#&#x6267;&#x884C;&#x7ED3;&#x679C;">2.8. &#x6267;&#x884C;&#x7ED3;&#x679C;</a></li></ul><li><a href="#&#x6253;&#x5305;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;hadoop_jar&#x547D;&#x4EE4;&#x6267;&#x884C;">3. &#x6253;&#x5305;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;hadoop jar&#x547D;&#x4EE4;&#x6267;&#x884C;</a></li><ul><li><a href="#pom_xml&#x589E;&#x52A0;&#x6253;&#x5305;&#x63D2;&#x4EF6;">3.1. pom.xml&#x589E;&#x52A0;&#x6253;&#x5305;&#x63D2;&#x4EF6;</a></li><li><a href="#maven&#x6253;&#x5305;">3.2. maven&#x6253;&#x5305;</a></li><li><a href="#&#x4F7F;&#x7528;java_-jar&#x6267;&#x884C;">3.3. &#x4F7F;&#x7528;java -jar&#x6267;&#x884C;</a></li><li><a href="#&#x4F7F;&#x7528;hadoop_jar&#x6267;&#x884C;">3.4. &#x4F7F;&#x7528;hadoop jar&#x6267;&#x884C;</a></li></ul><li><a href="#&#x95EE;&#x9898;">4. &#x95EE;&#x9898;</a></li><ul><li><a href="#&#x4E00;&#x3001;Hadoop_2_x&#x4E2D;&#x8FD8;&#x6709;hadoop-core-x_x_jar&#x5417;&#xFF1F;">4.1. &#x4E00;&#x3001;Hadoop 2.x&#x4E2D;&#x8FD8;&#x6709;hadoop-core-x.x.jar&#x5417;&#xFF1F;</a></li></ul><li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;">5. &#x53C2;&#x8003;&#x8D44;&#x6599;</a></li><li><a href="#ChangeLog">6. ChangeLog</a></li></ul></div><a href="#&#x73AF;&#x5883;&#x51C6;&#x5907;" id="goTop"><i class="fa fa-arrow-up"></i></a>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="20190517_detailed-hadoop-commands.html" class="navigation navigation-prev " aria-label="Previous page: Hadoop常用命令详解">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="20190522_principle-and-architecture-analysis-of-hadoop .html" class="navigation navigation-next " aria-label="Next page: Hadoop原理与架构解析">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"使用IDEA开发MapReduce程序","level":"5.1.1.4","depth":3,"next":{"title":"Hadoop原理与架构解析","level":"5.1.1.5","depth":3,"path":"20190522_principle-and-architecture-analysis-of-hadoop .md","ref":"20190522_principle-and-architecture-analysis-of-hadoop .md","articles":[]},"previous":{"title":"Hadoop常用命令详解","level":"5.1.1.3","depth":3,"path":"20190517_detailed-hadoop-commands.md","ref":"20190517_detailed-hadoop-commands.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-livereload","theme-default","-lunr","-search","search-pro","expandable-chapters","simple-page-toc","navigator","tbfed-pagefooter"],"root":"./wiki@learning","styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"tbfed-pagefooter":{"copyright":"Copyright &copy zhbwang","modify_label":"修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search-pro":{},"expandable-chapters":{},"navigator":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","author":"wangzb","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"文斌的学习笔记","gitbook":"*","description":"文斌的学习笔记","direction":"rtl"},"file":{"path":"20190517_develop-mapreduce-program-with-idea.md","mtime":"2019-06-08T09:00:43.459Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-08T09:04:03.916Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
