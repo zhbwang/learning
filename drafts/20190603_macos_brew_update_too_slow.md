@@ -43,3 +43,8 @@ git remote set-url origin https://github.com/Homebrew/homebrew-core.git
 ## 参考资料
 
 1. [Homebrew国内源设置与常用命令](https://segmentfault.com/a/1190000008274997)
+
+
+## ChangeLog
+
+* 20190603 | 创建文档
