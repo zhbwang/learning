@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>前言 · 文斌的学习笔记</title>
+        <title>Hive实现wordcount词频统计 · 文斌的学习笔记</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -70,6 +70,8 @@
 
     
     
+    <link rel="prev" href="20190525_installation-and-use-of-hive.html" />
+    
 
     </head>
     <body>
@@ -117,7 +119,7 @@
         
         
     
-        <li class="chapter active" data-level="2.1" data-path="./">
+        <li class="chapter " data-level="2.1" data-path="./">
             
                 <a href="./">
             
@@ -366,7 +368,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2.2" data-path="20190527_implementation-of-wordcount-by-hive.html">
+        <li class="chapter active" data-level="5.1.2.2" data-path="20190527_implementation-of-wordcount-by-hive.html">
             
                 <a href="20190527_implementation-of-wordcount-by-hive.html">
             
@@ -451,7 +453,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >前言</a>
+        <a href="." >Hive实现wordcount词频统计</a>
     </h1>
 </div>
 
@@ -466,10 +468,139 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h1>
+                                <h1 id="2019-05-27__|_Hive&#x5B9E;&#x73B0;wordcount&#x8BCD;&#x9891;&#x7EDF;&#x8BA1;">2019-05-27  | Hive&#x5B9E;&#x73B0;wordcount&#x8BCD;&#x9891;&#x7EDF;&#x8BA1;</h1>
+<blockquote>
+<p>2019-05-27 | &#x5927;&#x6570;&#x636E;&#x5B66;&#x4E60;&#x4E4B;&#x8DEF;07</p>
+</blockquote>
+<h2 id="&#x65B0;&#x5EFA;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;">1. &#x65B0;&#x5EFA;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;</h2>
+<pre><code>WZB-MacBook:tmp wangzhibin$ pwd
+/Users/wangzhibin/00_dev_suite/50_bigdata/tmp
+WZB-MacBook:tmp wangzhibin$ vi test.txt
+</code></pre><p>&#x589E;&#x52A0;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code>hello man
+what are you doing now
+my running
+hello
+kevin
+hi man
+</code></pre><h2 id="&#x6587;&#x4EF6;&#x5BFC;&#x5165;&#x5230;hive">2. &#x6587;&#x4EF6;&#x5BFC;&#x5165;&#x5230;hive</h2>
+<h3 id="&#x5EFA;&#x8868;&#x5E76;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x5206;&#x9694;&#x7B26;">2.1. &#x5EFA;&#x8868;&#x5E76;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x5206;&#x9694;&#x7B26;</h3>
+<pre><code>hive&gt; use hive_1;
+OK
+Time taken: 0.024 seconds
+hive&gt; create table wc(txt String) row format delimited fields terminated by &apos;\t&apos;;
+OK
+Time taken: 0.715 seconds
+hive&gt; show tables;
+OK
+hive_01
+wc
+Time taken: 0.035 seconds, Fetched: 2 row(s)
+</code></pre><h3 id="&#x5BFC;&#x5165;&#x6587;&#x4EF6;">2.2. &#x5BFC;&#x5165;&#x6587;&#x4EF6;</h3>
+<p>HDFS&#x521D;&#x59CB;&#x65E0;&#x6570;&#x636E;</p>
+<pre><code>WZB-MacBook:50_bigdata wangzhibin$ hadoop fs -ls -R /user/hive/warehouse/hive_1.db/wc
+&#x8FD4;&#x56DE;&#x65E0;&#x6570;&#x636E;
+</code></pre><p>&#x5BFC;&#x5165;&#x6587;&#x4EF6;</p>
+<pre><code>hive&gt; load data local inpath &apos;/Users/wangzhibin/00_dev_suite/50_bigdata/tmp/test.txt&apos; overwrite into table wc;
+Loading data to table hive_1.wc
+OK
+Time taken: 2.235 seconds
+hive&gt; select * from wc;
+OK
+hello man
+what are you doing now
+my running
+hello
+kevin
+hi man
+Time taken: 1.602 seconds, Fetched: 6 row(s)
+</code></pre><p>HDFS&#x6587;&#x4EF6;&#x5185;&#x5BB9;</p>
+<pre><code>WZB-MacBook:50_bigdata wangzhibin$ hadoop fs -ls -R /user/hive/warehouse/hive_1.db/wc
+-rwxr-xr-x   1 wangzhibin supergroup         63 2019-05-27 21:09 /user/hive/warehouse/hive_1.db/wc/test.txt
+WZB-MacBook:50_bigdata wangzhibin$ hadoop fs -cat /user/hive/warehouse/hive_1.db/wc/test.txt
+hello man
+what are you doing now
+my running
+hello
+kevin
+hi man
+</code></pre><h3 id="&#x4F7F;&#x7528;HQL&#x7EDF;&#x8BA1;&#x5355;&#x8BCD;">2.3. &#x4F7F;&#x7528;HQL&#x7EDF;&#x8BA1;&#x5355;&#x8BCD;</h3>
+<pre><code>hive&gt; select split(txt,&apos; &apos;) from wc;
+OK
+[&quot;hello&quot;,&quot;man&quot;]
+[&quot;what&quot;,&quot;are&quot;,&quot;you&quot;,&quot;doing&quot;,&quot;now&quot;]
+[&quot;my&quot;,&quot;running&quot;]
+[&quot;hello&quot;]
+[&quot;kevin&quot;]
+[&quot;hi&quot;,&quot;man&quot;]
+Time taken: 0.337 seconds, Fetched: 6 row(s)
+hive&gt; select explode(split(txt,&apos; &apos;)) from wc;
+OK
+hello
+man
+what
+are
+you
+doing
+now
+my
+running
+hello
+kevin
+hi
+man
+Time taken: 0.094 seconds, Fetched: 13 row(s)
+hive&gt; select t1.word,count(t1.word) from (select explode(split(txt,&apos; &apos;))word from wc)t1 group by t1.word;
+WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. tez, spark) or using Hive 1.X releases.
+Query ID = wangzhibin_20190527214319_1532be66-b6e5-4603-83a9-dc4c7d6ec466
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Defaulting to jobconf value of: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=&lt;number&gt;
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=&lt;number&gt;
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=&lt;number&gt;
+Starting Job = job_1558964487152_0004, Tracking URL = http://WZB-MacBook.local:8088/proxy/application_1558964487152_0004/
+Kill Command = /Users/wangzhibin/00_dev_suite/50_bigdata/hadoop/bin/hadoop job  -kill job_1558964487152_0004
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2019-05-27 21:43:25,976 Stage-1 map = 0%,  reduce = 0%
+2019-05-27 21:43:31,173 Stage-1 map = 100%,  reduce = 0%
+2019-05-27 21:43:36,365 Stage-1 map = 100%,  reduce = 100%
+Ended Job = job_1558964487152_0004
+MapReduce Jobs Launched:
+Stage-Stage-1: Map: 1  Reduce: 1   HDFS Read: 8923 HDFS Write: 294 SUCCESS
+Total MapReduce CPU Time Spent: 0 msec
+OK
+are    1
+doing    1
+hello    2
+hi    1
+kevin    1
+man    2
+my    1
+now    1
+running    1
+what    1
+you    1
+Time taken: 17.562 seconds, Fetched: 11 row(s)
+</code></pre><p>&#x5C0F;&#x63D2;&#x66F2;&#xFF1A;[&#x6267;&#x884C;&#x7ED3;&#x679C;&#x672A;&#x51FA;&#x6765;&#x7684;&#x539F;&#x56E0;&#x662F;&#xFF1A;&#x6CA1;&#x6709;&#x542F;&#x52A8;yarn]</p>
+<h2 id="&#x603B;&#x7ED3;">3. &#x603B;&#x7ED3;</h2>
+<pre><code>split--------------------------&#x5217;&#x53D8;&#x6570;&#x7EC4;
+explode------------------------&#x6570;&#x7EC4;&#x62C6;&#x5206;&#x6210;&#x591A;&#x884C;
+group by&#x548C;count----------------&#x5BF9;&#x884C;&#x5206;&#x7EC4;&#x540E;&#x6C42;&#x5404;&#x884C;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;
+</code></pre><h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;">4. &#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</h2>
+<ol>
+<li><a href="https://blog.csdn.net/pengzonglu7292/article/details/79044740" target="_blank">Hive&#x5B9E;&#x73B0;wordcount&#x8BCD;&#x9891;&#x7EDF;&#x8BA1;</a></li>
+</ol>
+<h2 id="ChangeLog">5. ChangeLog</h2>
+<ul>
+<li>20190527 | &#x521B;&#x5EFA;&#x6587;&#x6863;</li>
+</ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; zhbwang all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2019-04-03 20:00:24
-</span></footer>
+2019-06-08 17:09:01
+</span></footer><div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#2019-05-27__%7C_Hive&#x5B9E;&#x73B0;wordcount&#x8BCD;&#x9891;&#x7EDF;&#x8BA1;">2019-05-27  | Hive&#x5B9E;&#x73B0;wordcount&#x8BCD;&#x9891;&#x7EDF;&#x8BA1;</a></p><li><a href="#&#x65B0;&#x5EFA;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;">1. &#x65B0;&#x5EFA;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;</a></li><li><a href="#&#x6587;&#x4EF6;&#x5BFC;&#x5165;&#x5230;hive">2. &#x6587;&#x4EF6;&#x5BFC;&#x5165;&#x5230;hive</a></li><ul><li><a href="#&#x5EFA;&#x8868;&#x5E76;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x5206;&#x9694;&#x7B26;">2.1. &#x5EFA;&#x8868;&#x5E76;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x5206;&#x9694;&#x7B26;</a></li><li><a href="#&#x5BFC;&#x5165;&#x6587;&#x4EF6;">2.2. &#x5BFC;&#x5165;&#x6587;&#x4EF6;</a></li><li><a href="#&#x4F7F;&#x7528;HQL&#x7EDF;&#x8BA1;&#x5355;&#x8BCD;">2.3. &#x4F7F;&#x7528;HQL&#x7EDF;&#x8BA1;&#x5355;&#x8BCD;</a></li></ul><li><a href="#&#x603B;&#x7ED3;">3. &#x603B;&#x7ED3;</a></li><li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;">4. &#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</a></li><li><a href="#ChangeLog">5. ChangeLog</a></li></ul></div><a href="#&#x65B0;&#x5EFA;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -496,6 +627,10 @@
 
             
                 
+                <a href="20190525_installation-and-use-of-hive.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Hive安装与使用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
                 
             
         
@@ -504,7 +639,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"前言","level":"2.1","depth":1,"next":{"title":"知识体系构建","level":"4.1","depth":1,"ref":"","articles":[{"title":"如何建立自己的知识库","level":"4.1.1","depth":2,"path":"20190606_how-to-build-your-own-knowledge-base.md","ref":"20190606_how-to-build-your-own-knowledge-base.md","articles":[]}]},"previous":{"title":"life","level":"1.1","depth":1,"url":"http://localhost/life","ref":"http://localhost/life","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-livereload","theme-default","-lunr","-search","search-pro","expandable-chapters","simple-page-toc","navigator","tbfed-pagefooter"],"root":"./wiki@learning","styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"tbfed-pagefooter":{"copyright":"Copyright &copy zhbwang","modify_label":"修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search-pro":{},"expandable-chapters":{},"navigator":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","author":"wangzb","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"文斌的学习笔记","gitbook":"*","description":"文斌的学习笔记","direction":"rtl"},"file":{"path":"README.md","mtime":"2019-04-03T12:00:24.002Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-09T04:09:53.602Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Hive实现wordcount词频统计","level":"5.1.2.2","depth":3,"next":{"title":"Linux","level":"5.2","depth":1,"ref":"","articles":[{"title":"Linux常用命令","level":"5.2.1","depth":2,"path":"20180712_commands-of-linux.md","ref":"20180712_commands-of-linux.md","articles":[]}]},"previous":{"title":"Hive安装与使用","level":"5.1.2.1","depth":3,"path":"20190525_installation-and-use-of-hive.md","ref":"20190525_installation-and-use-of-hive.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-livereload","theme-default","-lunr","-search","search-pro","expandable-chapters","simple-page-toc","navigator","tbfed-pagefooter"],"root":"./wiki@learning","styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"tbfed-pagefooter":{"copyright":"Copyright &copy zhbwang","modify_label":"修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search-pro":{},"expandable-chapters":{},"navigator":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","author":"wangzb","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"文斌的学习笔记","gitbook":"*","description":"文斌的学习笔记","direction":"rtl"},"file":{"path":"20190527_implementation-of-wordcount-by-hive.md","mtime":"2019-06-08T09:09:01.347Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-09T04:09:53.602Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
