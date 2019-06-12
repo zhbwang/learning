@@ -216,7 +216,10 @@ hive>
 2. [Hive详细介绍及简单应用](https://blog.csdn.net/l1212xiao/article/details/80432759)
 3. [hive简介](https://www.cnblogs.com/ggzhangxiaochao/p/9363029.html)
 4. [Hive安装与配置详解](https://www.cnblogs.com/dxxblog/p/8193967.html)
+5. [Hive官方文档](https://cwiki.apache.org/confluence/display/Hive)
+6. [Getting Started Guide on the Hive wiki](https://cwiki.apache.org/confluence/display/Hive/GettingStarted)
 
 ## ChangeLog
 
+* 20190611 | 增加Hive官方文档链接
 * 20190525 | 创建文档
