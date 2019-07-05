@@ -1,4 +1,4 @@
-#使用Hexo+Github搭建静态博客
+# 使用Hexo+Github搭建静态博客
 
 本文介绍了一种在github中搭建博客的方法。
 
